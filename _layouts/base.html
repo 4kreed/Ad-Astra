@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ site.name }}</title>
+        <!-- CSS styles -->
+        <link rel="stylesheet" href={{ "/assets/css/main.css" | relative_url }}>
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css"/>
+        <!-- Fonts -->
+        <!-- Use fontshare -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+
+    <body>
+        <header>
+            <a href="/" class="base-logo">
+                <img src={{ "/assets/img/logo-no-bg-white.webp" | relative_url }}
+                        alt="Ad-Astra logo">
+            </a>
+
+            <nav class="base-nav">
+                <a href="#">About</a>
+                <a href="#">Posts</a>
+            </nav>
+
+            <div class="base-search">
+                <form id="search-bar" class="base-search__form" action="https://www.google.com/search">
+                    <input type="search" class="base-search__input" placeholder="Type something...">
+                    <div class="base-search__button" id="search-button">
+                        <i class="ri-search-2-line base-search__icon"></i>
+                        <i class="ri-close-line base-search__close"></i>
+                    </div>    
+                </form>
+            </div>
+
+
+        </header>
+
+        <!-- {{ content }} -->
+
+        <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+
+    </body>
+
+                    <!-- <input type="text">
+                <i class="fas fa-times close-search"></i> -->
+
+                    <!--<a href="#" id="searchToggle">
+                    <i class="fas fa-search fa-flip-horizontal"></i>
+                </a>-->
+
+
+    <!-- <body class="base-body">
+        <header class="base-header">
+            <div class="base-header__logo">
+                <a href="/">
+                    <img src={{ "/assets/img/logo-no-bg-white.webp" | relative_url }}
+                            alt="Ad-Astra logo">
+                </a>
+            </div>
+
+            <nav class="base-header__nav">
+                <a href="#">About</a>
+                <a href="#">Posts</a>
+                <a href="#" id="searchToggle">
+                    <i class="fas fa-search fa-flip-horizontal"></i>
+                </a>
+                <div class="base-search">
+                    <form action="" id="search-bar" class="base-search__form">
+                        <input type="search" class="base-search__input" placeholder="Type something...">
+                    </form>
+                    <div class="base-search__button" id="search-button">
+                        <i class="ri-search-2-line search__icon"></i>
+                        <i class="ri-close-line search__close"></i>
+                    </div>
+                    <input type="text">
+                    <i class="fas fa-times close-search"></i>
+                </div>
+            </nav>
+
+        </header>
+
+        {{ content }}
+
+        <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+
+    </body> -->
+</html>
