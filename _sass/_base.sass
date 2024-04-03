@@ -1,0 +1,103 @@
+/* ============== BODY ============== */
+
+body
+    height: 100vh
+
+/* ============== HEADER ============== */
+
+header
+    height: 7%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: var(--blue-space)
+
+.base
+
+    &-logo
+        margin-left: 10px
+
+        img
+            max-width: 150px
+            display: flex
+            align-items: center
+
+    &-nav
+        display: flex
+        gap: 45px
+
+        a
+            text-decoration: none
+            color: var(--white)
+            font-size: 0.7rem
+            font-family: var(--header-font)
+
+    &-search
+        margin-inline: 1.2rem
+
+        &-form
+            position: relative
+            width: 36px
+            height: 36px
+            background-color: var(--white)
+            // box-shadow: 0 4px 24px rgba(255, 255, 255, 0.1)
+            border-radius: 4rem
+            padding: 10px
+            overflow: hidden
+            transition: width .5s cubic-bezier(.9, 0, .3, .9)
+            // transition: width 0.5s ease-in-out
+
+            input
+                border: none
+                outline: none
+                width: calc(100% - 25px)
+                border-radius: 4rem
+                opacity: 0
+                transition: opacity 1.5s
+                display: flex
+                font-size: small
+
+        &:-webkit-autofill
+            box-shadow: 0 0 0 100px white inset
+
+        &-button
+            width: 32px
+            height: 32px
+            background-color: var(--blue-space)
+            border-radius: 50%
+            position: absolute
+            top: 0
+            bottom: 0
+            right: 2px
+            margin: auto
+            display: grid
+            place-items: center
+            cursor: pointer
+            transition: transform .6s cubic-bezier(.9, 0, .3, .9)
+
+        &-icon,
+        &-close
+            color: var(--white)
+            font-size: 1.1rem
+            position: absolute
+            transition: opacity .5s cubic-bezier(.9, 0, .3, .9)
+
+        &-close
+            opacity: 0
+
+/* Search animated */
+.show-search
+    width: 200px
+
+    input
+        opacity: 1
+        pointer-events: initial
+    
+    .base-search-button
+        transform: rotate(90deg)
+    
+    .base-search-icon
+        opacity: 0
+
+    .base-search-close
+        opacity: 1
