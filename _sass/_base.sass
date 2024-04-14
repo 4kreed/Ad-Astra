@@ -6,148 +6,152 @@ body
 /* ============== HEADER ============== */
 
 header
-    height: 7%
+    height: 30vh
     display: flex
-    justify-content: space-between
-    align-items: center
     background-color: var(--blue-space)
+    flex-direction: column
 
 .base
 
+    &-toggle
+        display: flex
+        align-items: center
+        justify-content: flex-end
+
+        label
+            display: block
+            width: 70px
+            height: 31px
+            background: var(--white)
+            border-radius: 30mm
+            position: relative
+            cursor: pointer
+            overflow: hidden
+            margin-right: 1%
+            margin-top: 1%
+
+
+            .thumb 
+                position: absolute
+                width: 27px
+                height: 27px
+                background: var(--blue-space)
+                top: 2px
+                left: 2px
+                border-radius: 50%
+                box-shadow: 1px 1px 0 rgba(0,0,0,0.2), 2px 2px 0 rgba(100,100,100,0.2)
+                overflow: hidden
+                transition: 0.5s ease-in-out
+
+                .rotator
+                    display: block
+                    width: 200%
+                    height: 100%
+                    position: relative
+                    display: flex
+                    align-items: center
+                    transition: 0.5s ease-in-out
+
+                .side
+                    width: 100%
+                    height: 100%
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    transition: 0.5s ease-in-out
+
+                    img
+                        width: calc(100% - 5px)
+                        height: calc(100% - 5px)
+
+        #toggle:checked + label .thumb .rotator
+            transform: translateX(-50%)
+            background: rgb(235, 123, 91)
+
+        #toggle:checked + label .thumb
+            left: calc(100% - 30px)
+
+        #toggle:checked + label .thumb .rotator .side 
+            transform: rotate(180deg)
+
+        #toggle
+            display: none
+
     &-logo
-        margin-left: 10px
+        display: flex
+        justify-content: center
 
         img
-            max-width: 180px
             display: flex
             align-items: center
+            height: auto
 
     &-nav
         display: flex
-        gap: 45px
+        gap: 70px
+        justify-content: center
+        align-items: center
+        flex-grow: 1
 
         a
             text-decoration: none
             color: var(--white)
             font-size: 0.8rem
             font-family: var(--header-font)
+            letter-spacing: 0.25em
 
-    &-tools
-        margin-inline: 1.2rem
+    &-search
         display: flex
         align-items: center
         gap: 20px
 
-        &-search
+        &-form
+            position: relative
+            width: 36px
+            height: 36px
+            background-color: var(--white)
+            // box-shadow: 0 4px 24px rgba(255, 255, 255, 0.1)
+            border-radius: 4rem
+            padding: 10px
+            overflow: hidden
+            transition: width .5s cubic-bezier(.9, 0, .3, .9)
+            // transition: width 0.5s ease-in-out
 
-            &-form
-                position: relative
-                width: 36px
-                height: 36px
-                background-color: var(--white)
-                // box-shadow: 0 4px 24px rgba(255, 255, 255, 0.1)
+            input
+                border: none
+                outline: none
+                width: calc(100% - 25px)
                 border-radius: 4rem
-                padding: 10px
-                overflow: hidden
-                transition: width .5s cubic-bezier(.9, 0, .3, .9)
-                // transition: width 0.5s ease-in-out
-
-                input
-                    border: none
-                    outline: none
-                    width: calc(100% - 25px)
-                    border-radius: 4rem
-                    opacity: 0
-                    transition: opacity 1.5s
-                    display: flex
-                    font-size: small
-
-            &-button
-                width: 32px
-                height: 32px
-                background-color: var(--blue-space)
-                border-radius: 50%
-                position: absolute
-                top: 0
-                bottom: 0
-                right: 2px
-                margin: auto
-                display: grid
-                place-items: center
-                cursor: pointer
-                transition: transform .6s cubic-bezier(.9, 0, .3, .9)
-
-            &-icon,
-            &-close
-                color: var(--white)
-                font-size: 1.1rem
-                position: absolute
-                transition: opacity .5s cubic-bezier(.9, 0, .3, .9)
-
-            &-close
                 opacity: 0
+                transition: opacity 1.5s
+                display: flex
+                font-size: small
 
-        &-toggle
-            height: 100%
-            display: flex
-            align-items: center
-            justify-content: center
+        &-button
+            width: 32px
+            height: 32px
+            background-color: var(--blue-space)
+            border-radius: 50%
+            position: absolute
+            top: 0
+            bottom: 0
+            right: 2px
+            margin: auto
+            display: grid
+            place-items: center
+            cursor: pointer
+            transition: transform .6s cubic-bezier(.9, 0, .3, .9)
 
-            label
-                display: block
-                width: 70px
-                height: 30px
-                background: var(--white)
-                border-radius: 30mm
-                position: relative
-                cursor: pointer
-                overflow: hidden
+        &-icon,
+        &-close
+            color: var(--white)
+            font-size: 1.1rem
+            position: absolute
+            transition: opacity .5s cubic-bezier(.9, 0, .3, .9)
 
-                .thumb 
-                    position: absolute
-                    width: 27px
-                    height: 27px
-                    background: var(--blue-space)
-                    top: 2px
-                    left: 2px
-                    border-radius: 50%
-                    box-shadow: 1px 1px 0 rgba(0,0,0,0.2), 2px 2px 0 rgba(100,100,100,0.2)
-                    overflow: hidden
-                    transition: 0.5s ease-in-out
+        &-close
+            opacity: 0
 
-                    .rotator
-                        display: block
-                        width: 200%
-                        height: 100%
-                        position: relative
-                        display: flex
-                        align-items: center
-                        transition: 0.5s ease-in-out
-
-                    .side
-                        width: 100%
-                        height: 100%
-                        display: flex
-                        align-items: center
-                        justify-content: center
-                        transition: 0.5s ease-in-out
-
-                        img
-                            width: calc(100% - 5px)
-                            height: calc(100% - 5px)
-
-            #toggle:checked + label .thumb .rotator
-                transform: translateX(-50%)
-                background: rgb(235, 123, 91)
-
-            #toggle:checked + label .thumb
-                left: calc(100% - 30px)
-
-            #toggle:checked + label .thumb .rotator .side 
-                transform: rotate(180deg)
-
-            #toggle
-                display: none
 
         &:-webkit-autofill
             box-shadow: 0 0 0 100px white inset
