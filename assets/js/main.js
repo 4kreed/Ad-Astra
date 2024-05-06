@@ -16,9 +16,9 @@ function setMode(mode) {
   
     const logo = document.getElementById('logo');
     if (mode === 'dark-mode') {
-      logo.src = "/assets/img/white-logo.webp";
+        logo.src = "/assets/img/white-logo.webp";
     } else {
-      logo.src = "/assets/img/black-logo.webp";
+        logo.src = "/assets/img/black-logo.webp";
     }
 
     const toggle = document.getElementById('toggle');
@@ -46,8 +46,33 @@ function setInitialMode() {
     }
 }
 
+function generateSpaceLayer(size, selector, totalStars, duration) {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme == "dark-mode") {
+        const layer = [];
+        const COLORS = ["#fff2", "#fff4", "#fff7", "#fffc"];
+        // const COLORS = ["white"];
+    
+        for (let i = 0; i < totalStars; i++) {
+            const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+            const x = Math.floor(Math.random() * 100);
+            const y = Math.floor(Math.random() * 100);
+            layer.push(`${x}vw ${y}vh 0 white, ${x}vw ${y+100}vh 0 ${color}`);
+        }
+    
+        const container = document.querySelector(selector);
+        container.style.setProperty("--space-layer", layer.join(","));
+        container.style.setProperty("--size", size);
+        container.style.setProperty("--duration", duration);    
+    }
+}
+
 toggleSearch('search-bar', 'search-button');
 const toggle = document.getElementById('toggle');
 toggle.addEventListener('change', toggleMode);
 
 setInitialMode();
+generateSpaceLayer("1px", ".space-1", 200, "35s");
+generateSpaceLayer("2px", ".space-2", 75, "30s");
+generateSpaceLayer("3px", ".space-3", 15, "20s");

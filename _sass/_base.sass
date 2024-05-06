@@ -1,9 +1,31 @@
+.stars
+    background-image: linear-gradient(var(--background-color), #000)
+    position: fixed
+    inset: 0
+
+    .space
+        width: var(--size)
+        height: var(--size)
+        background: white
+        box-shadow: var(--space-layer)
+        position: absolute
+        top: 0
+        left: 0
+        opacity: 75%
+        animation: moveStars var(--duration) linear infinite
+
+@keyframes moveStars
+    from
+        transform: translateY(0)
+    to
+        transform: translateY(-100vh)
+
+
 /* ============== HEADER ============== */
 
 header
     height: 30vh
     display: flex
-    background-color: var(--background-color)
     flex-direction: column
 
 .base

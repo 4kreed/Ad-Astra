@@ -16,46 +16,52 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
 
-    <body class="dark-mode">
-        <header>
-            <div class="base-toggle">
-                <input type="checkbox" name="toggle" id="toggle"/>
-                <label for="toggle">
-                    <div class="thumb">
-                        <div class="rotator">
-                            <div class="left side">
-                                <img src={{ "/assets/img/moon.webp" | relative_url }}/>
-                            </div>
-                            <div class="right side">
-                                <img src={{ "/assets/img/sun.webp" | relative_url }}/>
+    <body>
+        <div class="stars">
+            <div class="space space-1"></div>
+            <div class="space space-2"></div>
+            <div class="space space-3"></div>
+            <header>
+                <div class="base-toggle">
+                    <input type="checkbox" name="toggle" id="toggle"/>
+                    <label for="toggle">
+                        <div class="thumb">
+                            <div class="rotator">
+                                <div class="left side">
+                                    <img src={{ "/assets/img/moon.webp" | relative_url }}/>
+                                </div>
+                                <div class="right side">
+                                    <img src={{ "/assets/img/sun.webp" | relative_url }}/>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </label>
-            </div>
-
-            <a href="/" class="base-logo">
-                <img src={{ "/assets/img/white-logo.webp" | relative_url }}
-                        alt="Ad-Astra logo" id="logo">
-            </a>
-
-            <nav class="base-nav">
-                <a href="#">About</a>
-                <a href="#">Posts</a>
-                <div class="base-search">
-                    <form id="search-bar" class="base-search-form" action="https://www.google.com/search">
-                        <input type="search" placeholder="Type something...">
-                        <div class="base-search-button" id="search-button">
-                            <i class="ri-search-2-line base-search-icon"></i>
-                            <i class="ri-close-line base-search-close"></i>
-                        </div>    
-                    </form>
-                </div>    
-            </nav>
-
-        </header>
-
-        {{ content }}
+                    </label>
+                </div>
+    
+                <a href="/" class="base-logo">
+                    <img src={{ "/assets/img/white-logo.webp" | relative_url }}
+                            alt="Ad-Astra logo" id="logo">
+                </a>
+    
+                <nav class="base-nav">
+                    <a href="#">About</a>
+                    <a href="#">Posts</a>
+                    <div class="base-search">
+                        <form id="search-bar" class="base-search-form" action="https://www.google.com/search">
+                            <input type="search" placeholder="Type something...">
+                            <div class="base-search-button" id="search-button">
+                                <i class="ri-search-2-line base-search-icon"></i>
+                                <i class="ri-close-line base-search-close"></i>
+                            </div>    
+                        </form>
+                    </div>    
+                </nav>
+    
+            </header>
+    
+            {{ content }}
+    
+        </div>
 
         <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
 
