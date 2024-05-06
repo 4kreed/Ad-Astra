@@ -1,7 +1,10 @@
+/* ============== BACKGROUND ============== */
+
 .stars
     background-image: linear-gradient(var(--background-color), #000)
     position: fixed
     inset: 0
+    z-index: -1
 
     .space
         width: var(--size)
@@ -13,6 +16,7 @@
         left: 0
         opacity: 75%
         animation: moveStars var(--duration) linear infinite
+        border-radius: 80%
 
 @keyframes moveStars
     from
