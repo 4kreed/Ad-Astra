@@ -51,14 +51,14 @@ function generateSpaceLayer(size, selector, totalStars, duration) {
 
     if (savedTheme == "dark-mode") {
         const layer = [];
-        const COLORS = ["#fff2", "#fff4", "#fff7", "#fffc"];
+        const COLORS = ["#fff", "#fff2", "#fff4", "#fff7", "#fffc"];
         // const COLORS = ["white"];
     
         for (let i = 0; i < totalStars; i++) {
             const color = COLORS[Math.floor(Math.random() * COLORS.length)];
             const x = Math.floor(Math.random() * 100);
             const y = Math.floor(Math.random() * 100);
-            layer.push(`${x}vw ${y}vh 0 white, ${x}vw ${y+100}vh 0 ${color}`);
+            layer.push(`${x}vw ${y}vh 0 ${color}, ${x}vw ${y+100}vh 0 ${color}`);
         }
     
         const container = document.querySelector(selector);
