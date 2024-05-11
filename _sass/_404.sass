@@ -1,0 +1,45 @@
+.not-found
+
+    &-container
+        display: flex
+        height: 70vh
+    
+    &-message
+        display: flex
+        flex-direction: column
+        text-align: center
+        font-family: var(--404-error-font)
+        color: var(--text-color)
+        justify-content: center
+        width: 50%
+
+        h1
+            font-size: 7rem 
+            margin-bottom: 30px
+    
+        p
+            font-size: 4rem
+        
+            a
+                color: inherit
+        
+    &-bg-image
+        width: 50%
+        display: flex
+        justify-content: center
+        align-items: center
+
+        img
+            width: 80%
+            max-width: 600px
+            padding: 0 20px 0 20px
+            animation: floatAnimation 4s ease-in-out infinite
+            transform: scaleX(-1) translateY(0)
+
+@keyframes floatAnimation
+    0%
+        transform: scaleX(-1) translateY(0)
+    50%
+        transform: scaleX(-1) translateY(-20px)
+    100%
+        transform: scaleX(-1) translateY(0)

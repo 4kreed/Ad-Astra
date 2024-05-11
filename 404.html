@@ -2,10 +2,14 @@
 layout: base
 ---
 
-<div class="404-error-container">
-    <div class="error-message">
-        <h2>404</h2>
-        <p>Lost in space? Go <a href="/">home</a>.</p>
+<div class="not-found-container">
+    <div class="not-found-message">
+        <h1>404</h1>
+        <p>Lost in space?</p>
+        <p>Go <a href="/">home</a>.</p>
     </div>
-    <div class="404-astronaut-image"></div>
+    <div class="not-found-bg-image">
+        <img src={{ "/assets/img/webp/astronaut-falling.webp" | relative_url }}
+        alt="Falling astronaut">
+    </div>
 </div>
