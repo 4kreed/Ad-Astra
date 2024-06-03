@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base>
+    <div class="flex h-[70vh]">
+        <div
+            class="flex w-1/2 flex-col justify-center text-center font-404 text-[color:var(--text-color)]"
+        >
+            <h1 class="mb-7 text-8xl">404</h1>
+            <p class="text-6xl">Lost in space?</p>
+            <p class="text-6xl">
+                Go <a class="text-inherit underline" href="/">home</a>.
+            </p>
+        </div>
+        <div class="flex w-1/2 items-center justify-center">
+            <img
+                class="w-4/5 max-w-xl -scale-x-100 transform animate-float px-5"
+                src="/webp/astronaut-falling.webp"
+                alt="Falling astronaut"
+            />
+        </div>
+    </div>
+</Base>

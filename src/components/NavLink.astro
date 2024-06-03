@@ -1,0 +1,12 @@
+---
+interface Props {
+    href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a
+    class="font-header text-xl tracking-wide text-[color:var(--text-color)] no-underline underline-offset-8 hover:underline"
+    href={href}><slot /></a
+>

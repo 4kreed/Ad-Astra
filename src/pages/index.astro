@@ -1,0 +1,39 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base>
+    <div class="mx-auto flex h-[70vh]">
+        <div
+            class="flex w-1/2 flex-col justify-center text-[color:var(--text-color)]"
+        >
+            <h1 class="mb-7 font-header text-5xl tracking-wide">
+                Ad Astra Per Aspera
+            </h1>
+            <p class="font-chakra mb-5 text-wrap text-xl opacity-95">
+                Welcome to <strong>Ad Astra</strong>, the first <strong
+                    class="text-yellow-400/90"
+                >
+                    open-source, example-driven encyclopedia</strong
+                >.
+            </p>
+            <p class="font-chakra text-pretty text-xl opacity-85">
+                This blog aims to provide <span class="text-yellow-400/90"
+                    >comprehensive and accessible resources</span
+                >
+                for anyone looking to deepen their understanding. Each topic or concept
+                presented is accompanied by one or more <span
+                    class="text-yellow-400/90">examples</span
+                > for practical and direct learning.
+            </p>
+        </div>
+        <div class="flex w-1/2 items-center justify-center">
+            <script
+                src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                type="module"></script>
+
+            <dotlottie-player src="/rocket-dark.json" speed="0.5" loop autoplay
+            ></dotlottie-player>
+        </div>
+    </div>
+</Base>

@@ -1,0 +1,22 @@
+---
+import NavLink from "./NavLink.astro";
+import Searcher from "./Searcher.astro";
+---
+
+<header class="flex md:block">
+    <a href="/" class="flex justify-center">
+        <img
+            class="object-fit flex h-auto w-3/5 max-w-5xl items-center"
+            style="object-position: 0 -10px;"
+            src="/webp/white-logo.webp"
+            alt="Ad-Astra logo"
+            id="logo"
+        />
+    </a>
+
+    <nav class="hidden flex-grow items-center justify-evenly md:flex">
+        <NavLink href="/about">About</NavLink>
+        <NavLink href="/posts">Posts</NavLink>
+        <Searcher />
+    </nav>
+</header>

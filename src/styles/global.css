@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Adam CG Pro";
+    src: url("/fonts/adam-cg-pro.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Nova Square";
+    src: url("/fonts/NovaSquare-Regular.ttf") format("truetype");
+}
+
+/* styles/global.css */
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-LightItalic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-MediumItalic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/ChakraPetch-SemiBoldItalic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+}
+
+@layer base {
+    :root {
+        --text-color: black;
+        --background-color: white;
+    }
+    html.dark {
+        --text-color: white;
+        --background-color: #0e0e1a;
+    }
+}
