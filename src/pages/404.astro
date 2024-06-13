@@ -1,24 +1,29 @@
 ---
-import Base from "../layouts/Base.astro";
+import Layout from "../layouts/Base.astro";
 ---
 
-<Base>
-    <div class="flex h-[70vh]">
+<Layout
+    title="Ad Astra - Page Not Found"
+    description="Oops! The page you're looking for doesn't exist."
+>
+    <!-- Parent container -->
+    <div
+        class="mt-8 flex h-full flex-grow flex-col items-center justify-center gap-28 md:mt-0 md:gap-14 lg:flex-row"
+    >
+        <!-- Text container -->
         <div
-            class="flex w-1/2 flex-col justify-center text-center font-404 text-[color:var(--text-color)]"
+            class="text-pretty text-center font-404 text-[color:var(--text-color)] [&>p]:text-4xl [&>p]:lg:text-5xl"
         >
-            <h1 class="mb-7 text-8xl">404</h1>
-            <p class="text-6xl">Lost in space?</p>
-            <p class="text-6xl">
+            <h1 class="mb-8 text-8xl md:text-9xl">404</h1>
+            <p class="mb-2 lg:mb-4">Lost in space?</p>
+            <p class="">
                 Go <a class="text-inherit underline" href="/">home</a>.
             </p>
         </div>
-        <div class="flex w-1/2 items-center justify-center">
-            <img
-                class="w-4/5 max-w-xl -scale-x-100 transform animate-float px-5"
-                src="/webp/astronaut-falling.webp"
-                alt="Falling astronaut"
-            />
+
+        <!-- Image container -->
+        <div class="w-11/12 -scale-x-100 transform animate-float md:max-w-md">
+            <img src="/webp/astronaut-falling.webp" alt="Falling astronaut" />
         </div>
     </div>
-</Base>
+</Layout>
