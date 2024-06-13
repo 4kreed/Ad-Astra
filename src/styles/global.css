@@ -12,7 +12,6 @@
     src: url("/fonts/NovaSquare-Regular.ttf") format("truetype");
 }
 
-/* styles/global.css */
 @font-face {
     font-family: "Chakra Petch";
     src: url("/fonts/ChakraPetch-Bold.ttf") format("truetype");

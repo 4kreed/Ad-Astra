@@ -1,39 +1,48 @@
 ---
-import Base from "../layouts/Base.astro";
+import Layout from "../layouts/Base.astro";
 ---
 
-<Base>
-    <div class="mx-auto flex h-[70vh]">
+<Layout
+    title="Ad Astra"
+    description="Ad Astra, the first open-source, example-driven encyclopedia."
+>
+    <!-- Parent container -->
+    <div class="mt-8 flex flex-grow flex-col md:mt-0 md:flex-row">
+        <!-- Text container -->
         <div
-            class="flex w-1/2 flex-col justify-center text-[color:var(--text-color)]"
+            class="flex flex-col justify-center text-[color:var(--text-color)] md:w-2/3"
         >
-            <h1 class="mb-7 font-header text-5xl tracking-wide">
+            <h1
+                class="mb-8 whitespace-nowrap text-center font-header text-2xl italic tracking-wide md:ml-20 md:text-left md:text-3xl lg:text-4xl"
+            >
                 Ad Astra Per Aspera
             </h1>
-            <p class="font-chakra mb-5 text-wrap text-xl opacity-95">
+            <p
+                class="mx-10 mb-7 text-pretty font-404 text-lg font-light opacity-95 md:ml-20 md:text-xl lg:text-2xl"
+            >
                 Welcome to <strong>Ad Astra</strong>, the first <strong
-                    class="text-yellow-400/90"
+                    class="text-indigo-400/95"
                 >
                     open-source, example-driven encyclopedia</strong
                 >.
             </p>
-            <p class="font-chakra text-pretty text-xl opacity-85">
-                This blog aims to provide <span class="text-yellow-400/90"
+            <p
+                class="mx-10 text-pretty font-404 text-lg font-light opacity-85 md:ml-20 md:text-xl"
+            >
+                This blog aims to provide <span class="text-indigo-400/90"
                     >comprehensive and accessible resources</span
                 >
                 for anyone looking to deepen their understanding. Each topic or concept
                 presented is accompanied by one or more <span
-                    class="text-yellow-400/90">examples</span
+                    class="text-indigo-400/90">examples</span
                 > for practical and direct learning.
             </p>
         </div>
-        <div class="flex w-1/2 items-center justify-center">
-            <script
-                src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-                type="module"></script>
 
+        <!-- Rocket animation -->
+        <div class="lg:max-w-sm xl:max-w-md">
             <dotlottie-player src="/rocket-dark.json" speed="0.5" loop autoplay
             ></dotlottie-player>
         </div>
     </div>
-</Base>
+</Layout>

@@ -2,17 +2,18 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import NavBar from "../components/NavBar.astro";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark h-full">
     <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <BaseHead title={title} description={description} />
     </head>
 
-    <body class="bg-[color:var(--background-color)]">
+    <body class="h-full bg-[color:var(--background-color)]">
         <div id="background" class="fixed inset-0 z-[-1]">
             <div
                 class="space space-1 absolute left-0 top-0 size-[var(--size)] animate-moveStars rounded-full bg-white opacity-75 shadow-space-layer"
@@ -28,9 +29,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             </div>
         </div>
         <!-- <ThemeToggle /> -->
-        <div id="content" class="m-auto max-w-6xl">
+        <div id="content" class="mx-auto flex h-full max-w-5xl flex-col">
             <Header />
             <slot />
+            <NavBar
+                class="sticky inset-x-0 bottom-0 mt-5 rounded bg-[color:var(--background-color)] opacity-85 md:hidden"
+            />
         </div>
         <script>
             /**
@@ -66,7 +70,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                 if (theme == "dark") {
                     const layer: string[] = [];
                     const COLORS = ["#fff", "#fff2", "#fff4", "#fff7", "#fffc"];
-                    // const COLORS = ["white"];
 
                     for (let i = 0; i < totalStars; i++) {
                         const color =

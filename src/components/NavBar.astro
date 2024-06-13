@@ -1,0 +1,12 @@
+---
+import NavLink from "./NavLink.astro";
+import Searcher from "./Searcher.astro";
+
+const { class: className } = Astro.props;
+---
+
+<nav class={`flex-grow flex items-center justify-evenly ${className}`}>
+    <NavLink href="/about">About</NavLink>
+    <NavLink href="/posts">Posts</NavLink>
+    <Searcher />
+</nav>

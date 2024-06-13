@@ -30,7 +30,13 @@ export default {
             boxShadow: {
                 "space-layer": "var(--space-layer)",
             },
+            objectPosition: {
+                "top-crop": "0 -15px",
+            },
         },
+    },
+    variants: {
+        objectPosition: ["responsive"],
     },
     plugins: [],
 };
