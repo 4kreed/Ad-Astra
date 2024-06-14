@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Base.astro";
+import Contributors from "../components/Contributors.astro";
+---
+
+<Layout
+    title="About Me - Creator of Ad Astra"
+    description="Learn about Akreed, the creator of Ad Astra. This blog is an open-source, example-driven encyclopedia where I document my learning journey and contributions from the community."
+>
+    <!-- Parent container -->
+    <div
+        class="mx-auto flex w-5/6 flex-col items-center gap-8 text-pretty bg-cyan-600/0 font-404 text-[color:var(--text-color)] lg:text-lg"
+    >
+        <!-- First row with short introduction and profile picture -->
+        <div
+            class="flex flex-col-reverse items-center gap-6 bg-red-400/0 md:mt-8 md:flex-row md:justify-center md:gap-10"
+        >
+            <div id="text" class="flex w-5/6 bg-orange-300/0 text-lg md:w-1/2">
+                <p>
+                    My name is Alvaro Lopez (<a
+                        href="https://github.com/4kreed"
+                        target="_blank"
+                        rel="noopener">@Akreed</a
+                    >), I'm a <span class="text-indigo-400/90"
+                        >security software engineer</span
+                    > on a continuous journey of learning and self-improvement.
+                </p>
+            </div>
+            <a href="https://github.com/4kreed" target="_blank" rel="noopener">
+                <img
+                    class="size-28 rounded-2xl border-2 border-indigo-400/50"
+                    src="/webp/profile-picture.webp"
+                    alt="Akreed's logo"
+                />
+            </a>
+        </div>
+
+        <!-- Rest of the content as diferent rows -->
+        <div class="flex flex-col gap-6 bg-slate-400/0 md:w-3/5">
+            <p>
+                I created Ad Astra, <span class="text-indigo-400/90"
+                    >an open-source, example-driven encyclopedia</span
+                >
+                as part of this journey. Tired of learning concepts that I didn't
+                practice enough and eventually forgot, I decided to create this blog
+                where, from now on, every new concept I learn will be thoroughly
+                documented, and I'll create <span class="text-indigo-400/90"
+                    >simple examples</span
+                > to help internalize them. I strongly believe this is the best way
+                to learn.
+            </p>
+            <p>
+                While the motivation behind creating Ad Astra was to improve the
+                way I learn technical subjects, the content of this blog is <span
+                    class="text-indigo-400/90"
+                    >not limited to technical topics</span
+                >. It is open to any kind of concept from any field, as long as
+                it is well-documented and includes practical examples.
+            </p>
+            <p>
+                I want this encyclopedia to be <span class="text-indigo-400/90"
+                    >open and collaborative</span
+                >. Anyone can contribute to it. The best way to do so is to open
+                a pull request on GitHub and add a post of any topic with
+                examples and references. Don't forget to add yourself as a
+                contributor in the list below!
+            </p>
+        </div>
+
+        <Contributors />
+    </div>
+</Layout>

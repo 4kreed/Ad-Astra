@@ -1,0 +1,33 @@
+---
+import { contributors } from "../consts";
+---
+
+<div class="flex w-5/6 flex-col justify-center md:pb-4">
+    <h1 class="mb-8 text-center text-2xl">Contributors</h1>
+    <ul class="flex flex-wrap justify-evenly gap-8">
+        {
+            contributors.map((contributor) => (
+                <li>
+                    <a
+                        class="flex items-center justify-center gap-4 rounded-lg border-2 p-4 shadow-md shadow-gray-400/60"
+                        href={contributor.href}
+                    >
+                        {contributor.logo && (
+                            <img
+                                src={contributor.logo}
+                                alt={contributor.name}
+                                class="size-12 rounded-full"
+                            />
+                        )}
+
+                        {contributor.name && (
+                            <p class="whitespace-nowrap text-center">
+                                {contributor.name}
+                            </p>
+                        )}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
