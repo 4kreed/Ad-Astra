@@ -11,7 +11,9 @@ const contributors = await getCollection("contributors");
 
 <div class="flex w-5/6 flex-col justify-center md:pb-4">
     <h1 class="mb-8 text-center text-2xl">Contributors</h1>
-    <ul class="flex flex-wrap items-center justify-evenly">
+    <ul
+        class="flex flex-wrap items-center justify-center gap-8 md:justify-evenly md:gap-y-8"
+    >
         {
             contributors.map((contributor) => (
                 <li class="flex h-fit w-fit items-center justify-center gap-2 rounded-lg border-2 p-4 shadow-md">
@@ -20,7 +22,7 @@ const contributors = await getCollection("contributors");
                             <img
                                 src={contributor.data.picture}
                                 alt="{contributor.name}"
-                                class="size-14 rounded-full"
+                                class="size-14 min-w-14 rounded-full"
                             />
                         </div>
                     )}

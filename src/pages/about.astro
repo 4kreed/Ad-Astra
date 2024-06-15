@@ -9,13 +9,13 @@ import Contributors from "../components/Contributors.astro";
 >
     <!-- Parent container -->
     <div
-        class="mx-auto flex w-5/6 flex-col items-center gap-8 text-pretty bg-cyan-600/0 font-404 text-[color:var(--text-color)] lg:text-lg"
+        class="mx-auto flex w-5/6 flex-col items-center gap-8 text-pretty font-404 text-[color:var(--text-color)] lg:text-lg"
     >
         <!-- First row with short introduction and profile picture -->
         <div
-            class="flex flex-col-reverse items-center gap-6 bg-red-400/0 md:mt-8 md:flex-row md:justify-center md:gap-10"
+            class="flex flex-col-reverse items-center gap-6 md:mt-8 md:w-4/5 md:flex-row md:justify-center md:gap-10"
         >
-            <div id="text" class="flex w-5/6 bg-orange-300/0 text-lg md:w-1/2">
+            <div id="text" class="flex w-5/6 text-lg">
                 <p>
                     My name is Alvaro Lopez (<a
                         href="https://github.com/4kreed"
@@ -28,7 +28,7 @@ import Contributors from "../components/Contributors.astro";
             </div>
             <a href="https://github.com/4kreed" target="_blank" rel="noopener">
                 <img
-                    class="size-28 rounded-2xl border-2 border-indigo-400/50"
+                    class="size-28 min-w-28 rounded-2xl border-2 border-indigo-400/50"
                     src="/webp/profile-picture.webp"
                     alt="Akreed's logo"
                 />
@@ -36,7 +36,7 @@ import Contributors from "../components/Contributors.astro";
         </div>
 
         <!-- Rest of the content as diferent rows -->
-        <div class="flex flex-col gap-6 bg-slate-400/0 md:w-3/5">
+        <div class="flex flex-col gap-6 md:w-5/6">
             <p>
                 I created Ad Astra, <span class="text-indigo-400/90"
                     >an open-source, example-driven encyclopedia</span
