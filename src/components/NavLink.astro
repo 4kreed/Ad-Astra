@@ -4,9 +4,18 @@ interface Props {
 }
 
 const { href } = Astro.props;
+const { pathname } = Astro.url;
+
+const subpath = pathname.match(/[^\/]+/g);
+const isActive = href === pathname || href === "/" + subpath?.[0];
 ---
 
 <a
-    class="font-header text-xl tracking-wide text-[color:var(--text-color)] no-underline underline-offset-8 hover:underline"
-    href={href}><slot /></a
+    class:list={[
+        "font-header text-xl tracking-wide text-[color:var(--text-color)]  underline-offset-8 hover:underline",
+        isActive ? "underline" : "no-underline",
+    ]}
+    href={href}
 >
+    <slot />
+</a>
