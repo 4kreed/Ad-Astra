@@ -1,31 +1,75 @@
 ---
-import { contributors } from "../consts";
+import { getCollection } from "astro:content";
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+import InstagramIcon from "./icons/InstagramIcon.astro";
+import TwitterIcon from "./icons/TwitterIcon.astro";
+import YoutubeIcon from "./icons/YoutubeIcon.astro";
+
+const contributors = await getCollection("contributors");
 ---
 
 <div class="flex w-5/6 flex-col justify-center md:pb-4">
     <h1 class="mb-8 text-center text-2xl">Contributors</h1>
-    <ul class="flex flex-wrap justify-evenly gap-8">
+    <ul class="flex flex-wrap items-center justify-evenly">
         {
             contributors.map((contributor) => (
-                <li>
-                    <a
-                        class="flex items-center justify-center gap-4 rounded-lg border-2 p-4 shadow-md shadow-gray-400/60"
-                        href={contributor.href}
-                    >
-                        {contributor.logo && (
+                <li class="flex h-fit w-fit items-center justify-center gap-2 rounded-lg border-2 p-4 shadow-md">
+                    {contributor.data.picture && (
+                        <div>
                             <img
-                                src={contributor.logo}
-                                alt={contributor.name}
-                                class="size-12 rounded-full"
+                                src={contributor.data.picture}
+                                alt="{contributor.name}"
+                                class="size-14 rounded-full"
                             />
-                        )}
+                        </div>
+                    )}
 
-                        {contributor.name && (
-                            <p class="whitespace-nowrap text-center">
-                                {contributor.name}
-                            </p>
+                    <div class="flex flex-col items-center justify-center">
+                        <div class="whitespace-nowrap text-center text-sm">
+                            {contributor.data.name && contributor.data.nick ? (
+                                <p>
+                                    {contributor.data.name}
+                                    (@{contributor.data.nick})
+                                </p>
+                            ) : contributor.data.name ? (
+                                <p>{contributor.data.name}</p>
+                            ) : contributor.data.nick ? (
+                                <p>@{contributor.data.nick}</p>
+                            ) : null}
+                        </div>
+                        {contributor.data.socials && (
+                            <div class="mt-3 flex items-center gap-4 [&_*]:size-5">
+                                {contributor.data.socials?.github && (
+                                    <GithubIcon
+                                        href={contributor.data.socials.github}
+                                    />
+                                )}
+                                {contributor.data.socials?.linkedin && (
+                                    <LinkedinIcon
+                                        href={contributor.data.socials.linkedin}
+                                    />
+                                )}
+                                {contributor.data.socials?.instagram && (
+                                    <InstagramIcon
+                                        href={
+                                            contributor.data.socials.instagram
+                                        }
+                                    />
+                                )}
+                                {contributor.data.socials?.twitter && (
+                                    <TwitterIcon
+                                        href={contributor.data.socials.twitter}
+                                    />
+                                )}
+                                {contributor.data.socials?.youtube && (
+                                    <YoutubeIcon
+                                        href={contributor.data.socials.youtube}
+                                    />
+                                )}
+                            </div>
                         )}
-                    </a>
+                    </div>
                 </li>
             ))
         }
