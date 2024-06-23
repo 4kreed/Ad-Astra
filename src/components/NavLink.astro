@@ -12,7 +12,7 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
 
 <a
     class:list={[
-        "font-header text-xl tracking-wide text-[color:var(--text-color)]  underline-offset-8 hover:underline",
+        "font-header text-xl tracking-wide text-[color:var(--text-color)] underline-offset-8  hover:underline md:text-2xl",
         isActive ? "underline" : "no-underline",
     ]}
     href={href}

@@ -1,0 +1,19 @@
+---
+export async function getStaticProps() {
+    return {
+        redirect: "/posts/1",
+    };
+}
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="refresh" content="0;url=/posts/1" />
+        <title>Redirecting...</title>
+    </head>
+    <body>
+        <p>Redirecting to <a href="/posts/1">/posts/1</a>...</p>
+    </body>
+</html>
