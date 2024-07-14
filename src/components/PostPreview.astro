@@ -1,4 +1,9 @@
 ---
+import type { Post } from "../content/config";
+interface Props {
+    post: Post;
+}
+
 const { post } = Astro.props;
 ---
 
@@ -34,5 +39,13 @@ const { post } = Astro.props;
             Published on{" "}
             {new Date(post.data.pubDate).toLocaleDateString()}
         </p>
+        {
+            post.data.updatedDate && (
+                <p class="text-xs text-gray-400">
+                    Updated on{" "}
+                    {new Date(post.data.updatedDate).toLocaleDateString()}
+                </p>
+            )
+        }
     </div>
 </a>

@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z, type CollectionEntry } from "astro:content";
 
 const posts = defineCollection({
     type: "content",
@@ -38,3 +38,4 @@ const contributors = defineCollection({
 });
 
 export const collections = { posts, contributors };
+export type Post = CollectionEntry<typeof posts>;
