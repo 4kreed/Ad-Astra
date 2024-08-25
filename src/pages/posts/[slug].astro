@@ -1,0 +1,59 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts");
+    return posts.map((post) => ({
+        params: {
+            slug: post.slug,
+        },
+        props: { post },
+    }));
+}
+
+const post: CollectionEntry<"posts"> = Astro.props.post;
+const { Content } = await post.render();
+
+function formatDate(dateString: Date) {
+    const dateOptions: Intl.DateTimeFormatOptions = {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+    };
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", dateOptions);
+}
+
+const formattedDate = formatDate(post.data.pubDate);
+---
+
+<Layout>
+    <article
+        class="mx-auto mt-4 flex w-5/6 flex-col gap-4 text-pretty pb-8 font-404 text-[color:var(--text-color)] sm:mt-8 sm:gap-6 [&>img]:aspect-video [&>img]:max-h-72 [&>img]:rounded-lg"
+    >
+        {
+            post.data.image ? (
+                <img src={post.data.image} />
+            ) : (
+                <img src="/webp/hero-image.webp" />
+            )
+        }
+        <h1 class="text-3xl sm:text-6xl">{post.data.title}</h1>
+        <p class="-my-2 whitespace-nowrap text-gray-400">
+            {formattedDate}
+        </p>
+
+        <div class="flex flex-wrap gap-2 sm:gap-4">
+            {
+                post.data.tags.map((tag) => (
+                    <span class="rounded-lg bg-indigo-400/80 px-2 py-1 text-[color:var(--background-color)] sm:px-3 sm:text-xl">
+                        <a href={`/tags/${tag}`}>{tag}</a>
+                    </span>
+                ))
+            }
+        </div>
+
+        <Content />
+    </article>
+</Layout>

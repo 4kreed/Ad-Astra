@@ -1,6 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
+import Logo from "../components/Logo.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import NavBar from "../components/NavBar.astro";
 
@@ -29,12 +29,15 @@ const { title, description } = Astro.props;
             </div>
         </div>
         <!-- <ThemeToggle /> -->
-        <div id="content" class="mx-auto flex h-full max-w-5xl flex-col">
-            <Header />
-            <slot />
-            <NavBar
-                class="sticky inset-x-0 bottom-0 mt-5 rounded bg-[color:var(--background-color)] opacity-85 md:hidden"
-            />
+        <div
+            id="content"
+            class="mx-auto flex h-fit min-h-full max-w-5xl flex-col bg-slate-400"
+        >
+            <Logo />
+            <div class="flex flex-grow flex-col md:flex-col-reverse">
+                <slot />
+                <NavBar />
+            </div>
         </div>
         <script>
             /**
