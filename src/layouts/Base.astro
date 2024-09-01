@@ -29,12 +29,11 @@ const { title, description } = Astro.props;
             </div>
         </div>
         <!-- <ThemeToggle /> -->
-        <div
-            id="content"
-            class="mx-auto flex h-fit min-h-full max-w-5xl flex-col bg-slate-400"
-        >
+        <div id="content" class="mx-auto flex min-h-screen max-w-5xl flex-col">
             <Logo />
-            <div class="flex flex-grow flex-col md:flex-col-reverse">
+            <div
+                class="flex flex-grow flex-col md:flex-col-reverse md:justify-end"
+            >
                 <slot />
                 <NavBar />
             </div>
