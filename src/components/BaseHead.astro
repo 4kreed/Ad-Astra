@@ -9,8 +9,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-// TODO: change image
-const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
+const { title, description, image = "/webp/hero-image.webp" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -82,4 +81,5 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 
 <script
     src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-    type="module"></script>
+    type="module"
+    is:inline></script>

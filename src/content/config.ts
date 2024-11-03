@@ -38,4 +38,4 @@ const contributors = defineCollection({
 });
 
 export const collections = { posts, contributors };
-export type Post = CollectionEntry<typeof posts>;
+export type Post = CollectionEntry<"posts">;

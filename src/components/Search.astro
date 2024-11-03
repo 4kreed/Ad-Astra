@@ -12,12 +12,11 @@
 >
     <div
         class="relative flex max-h-[90vh] w-10/12 flex-col overflow-scroll rounded border-2 border-white p-8 shadow-lg"
-        onClick={(e) => e.stopPropagation()}
+        id="search-content"
     >
         <button
             id="close-modal"
             class="absolute right-4 top-1 text-3xl font-bold text-white"
-            onClick={() => toggleModal()}
         >
             &times;
         </button>
@@ -36,43 +35,52 @@
         </ul>
     </div>
 </div>
+
 <script>
     import DomPurify from "dompurify";
     import Fuse from "fuse.js";
+    import type { FuseResult } from "fuse.js";
 
-    let SEARCH_DATA;
-    let FUSE_INSTANCE;
-    // TODO: Tune this options
+    let SEARCH_DATA: any[] | null = null;
+    let FUSE_INSTANCE: Fuse<any> | null = null;
     const FUSE_OPTIONS = {
         includeScore: true,
         shouldSort: true,
         threshold: 0.5,
         keys: [
-            {
-                name: "title",
-                weight: 1,
-            },
-
-            {
-                name: "slug",
-                weight: 0.75,
-            },
-            {
-                name: "description",
-                weight: 0.5,
-            },
-            {
-                name: "content",
-                weight: 0.25,
-            },
+            { name: "title", weight: 1 },
+            { name: "slug", weight: 0.75 },
+            { name: "description", weight: 0.5 },
+            { name: "content", weight: 0.25 },
         ],
     };
 
     const searchResults = document.getElementById("search-results");
 
-    function displayResults(searchResult) {
+    const toggleModal = () => {
+        const searchModal = document.getElementById("search-modal");
+        const searchInput = document.getElementById(
+            "search-input",
+        ) as HTMLInputElement;
+        let isOpen = searchModal?.classList.contains("flex");
+
+        searchModal?.classList.toggle("hidden");
+        searchModal?.classList.toggle("flex");
+        if (!isOpen) {
+            searchInput?.focus();
+        } else {
+            if (searchInput) {
+                searchInput.value = "";
+            }
+        }
+        if (searchResults) {
+            searchResults.innerHTML = "";
+        }
+    };
+
+    function displayResults(searchResult: FuseResult<any>[]) {
         return searchResult
-            .map((result) => {
+            .map((result: FuseResult<any>) => {
                 const {
                     title,
                     slug,
@@ -83,7 +91,7 @@
                     image,
                 } = result.item;
                 return `
-                <li>
+                <li class="md:max-w-72">
                     <a
                         href="/posts/${slug}"
                         class="flex flex-col gap-4 rounded-lg border-2 border-indigo-400/80 p-2 shadow-md hover:border-indigo-300 hover:font-bold"
@@ -95,7 +103,7 @@
                             <div class="flex w-fit flex-wrap gap-2">
                                 ${tags
                                     .map(
-                                        (tag) => `
+                                        (tag: string) => `
                                     <span class="rounded-lg bg-indigo-400/80 px-2 py-1 text-[color:var(--background-color)]">
                                         ${tag}
                                     </span>`,
@@ -124,9 +132,11 @@
             .join("");
     }
 
-    async function fetchSearchResults(search) {
+    async function fetchSearchResults(search: string) {
         if (search.length === 0) {
-            searchResults.innerHTML = "";
+            if (searchResults) {
+                searchResults.innerHTML = "";
+            }
             return;
         }
         if (!SEARCH_DATA) {
@@ -148,47 +158,43 @@
             return;
         }
         const searchResult = FUSE_INSTANCE.search(search);
-        searchResults.innerHTML =
-            searchResult.length > 0
-                ? displayResults(searchResult)
-                : "No results found…";
+        if (searchResults) {
+            searchResults.innerHTML =
+                searchResult.length > 0
+                    ? displayResults(searchResult)
+                    : "No results found…";
+        }
     }
 
     document.addEventListener("DOMContentLoaded", () => {
         const searchButton = document.getElementById("search-button");
-        const searchModal = document.getElementById("search-modal");
+        const searchContent = document.getElementById("search-content");
         const searchInput = document.getElementById("search-input");
+        const searchModal = document.getElementById("search-modal");
         const closeModalButton = document.getElementById("close-modal");
 
-        let isOpen = false;
+        searchContent?.addEventListener("click", (e: MouseEvent) => {
+            e.stopPropagation();
+        });
 
-        const toggleModal = () => {
-            isOpen = !isOpen;
-            searchModal?.classList.toggle("hidden");
-            searchModal?.classList.toggle("flex");
-            if (isOpen) {
-                searchInput?.focus();
-            } else {
-                searchInput.value = "";
-            }
-            searchResults.innerHTML = "";
-        };
-
-        const handleClose = (event) => {
-            if (event.key === "Escape" || event.target === searchModal) {
+        const handleClose = (event: KeyboardEvent | MouseEvent) => {
+            if (event instanceof KeyboardEvent && event.key === "Escape") {
+                toggleModal();
+            } else if (event.target === searchModal) {
                 toggleModal();
             }
         };
 
-        const handleOnSearch = (event) => {
-            const searchTerm = DomPurify.sanitize(event.target.value);
+        const handleOnSearch = (event: Event) => {
+            const target = event.target as HTMLInputElement;
+            const searchTerm = DomPurify.sanitize(target.value);
             fetchSearchResults(searchTerm);
         };
 
         searchButton?.addEventListener("click", toggleModal);
         searchInput?.addEventListener("input", handleOnSearch);
         searchModal?.addEventListener("click", handleClose);
-        window.addEventListener("keydown", handleClose);
         closeModalButton?.addEventListener("click", toggleModal);
+        window.addEventListener("keydown", handleClose);
     });
 </script>
