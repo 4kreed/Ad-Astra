@@ -39,7 +39,9 @@ const page = Astro.props.page;
         <nav class="mt-2 flex">
             {
                 page.currentPage > 1 && (
-                    <a href={`/posts/${page.currentPage - 1}`}>
+                    <a
+                        href={`${import.meta.env.BASE_URL}/posts/${page.currentPage - 1}`}
+                    >
                         &lt;&nbsp;&nbsp;
                     </a>
                 )
@@ -47,7 +49,9 @@ const page = Astro.props.page;
             <p>{page.currentPage} / {page.lastPage}</p>
             {
                 page.currentPage < page.total && (
-                    <a href={`/posts/${page.currentPage + 1}`}>
+                    <a
+                        href={`${import.meta.env.BASE_URL}/posts/${page.currentPage + 1}`}
+                    >
                         &nbsp;&nbsp;&gt;
                     </a>
                 )
