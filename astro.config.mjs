@@ -7,7 +7,8 @@ import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://example.com",
+    site: "https://4kreed.github.io",
+    base: "Ad-Astra",
     integrations: [
         expressiveCode({
             themes: ["dracula-soft"],
