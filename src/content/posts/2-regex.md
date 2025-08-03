@@ -10,7 +10,7 @@ image: "/Ad-Astra/posts/2-regex.png"
 
 ## Definition and Purpose
 
-A**regular expression**, often abbreviated as "regex" or "regexp", is a sequence of characters that forms a search pattern. In computer science, regular expressions are a fundamental tool for text processing and manipulation. Their primary purpose is to identify, match, or manage specific patterns within textual data.
+A **regular expression**, often abbreviated as "regex" or "regexp", is a sequence of characters that forms a search pattern. In computer science, regular expressions are a fundamental tool for text processing and manipulation. Their primary purpose is to identify, match, or manage specific patterns within textual data.
 
 Common applications include:
 
